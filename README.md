@@ -20,3 +20,20 @@ cmake -G"Ninja" ..
 cmake -G"Ninja" -D"你的路径/ninja.exe" ..
 ```
 
+## Linux 下使用说明
+### 部署工具链环境
+可在此处下载工具链 https://github.com/xpack-dev-tools/riscv-none-embed-gcc-xpack/releases
+```
+$tar -zxvf xpack-riscv-none-embed-gcc-10.2.0-1.2-linux-arm64.tar.gz
+$export PATH=${PATH}:/your-toolchain-dir-path/xpack-riscv-none-embed-gcc-10.2.0-1.2/bin
+```
+
+### 安装ninjia构建工具
+```
+$sudo apt-get install ninja-build
+```
+### 编译
+```
+$./build.sh
+```
+

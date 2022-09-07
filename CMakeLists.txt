@@ -4,7 +4,7 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
 cmake_minimum_required(VERSION 3.20)
 
 # 工具链设置
-set(TOOLPATH  D:/0wch/toolchain/RISCVEmbeddedGCC/bin/riscv-none-embed-)
+set(TOOLPATH riscv-none-embed-)
 
 if (WIN32)
 	MESSAGE(STATUS "Now is windows!")
@@ -59,7 +59,7 @@ file(GLOB_RECURSE SOURCES
                 "APP/*.c"
                 "Core/core_riscv.c" 
                 "Debug/debug.c"
-                "Peripheral/SRC/*.c" 
+                "Peripheral/src/*.c"
                 "Startup/startup_ch32v20x_D6.S"
                 )
 
@@ -77,7 +77,7 @@ add_link_options(-T ${LINKER_SCRIPT})
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
 
 # 链接静态库
-target_link_libraries(${PROJECT_NAME}.elf printfloat)
+target_link_libraries(${PROJECT_NAME}.elf )
 
 # 输出hex和bin
 set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
